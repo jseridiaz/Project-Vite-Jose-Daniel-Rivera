@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es_ES">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="./assets/iconoPc.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./category.js" defer></script>
+    <script src="services.js" defer></script>
+    <script type="module" src="/main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vite Proyect</title>
+  </head>
+  <body>
+    <header class="flex-container-column">
+      <div id="first-header" class="flex-container">
+        <img
+          src="https://cdn.pccomponentes.com/img/logos/logo-pccomponentes.svg"
+          id="logo-img"
+          alt="logo pc componentes"
+          loading="lazy"
+        />
+        <div id="select-div" class="flex-container relative">
+          <select name="Selecionar categorias" id="select">
+            <option value="todos">Todas las categorías</option>
+            <option value="todos">Reacondicionados</option>
+          </select>
+          <input type="search" name="Buscador" placeholder="Buscar" id="buscador-general" />
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/2319/2319177.png"
+            alt="icono lupa"
+            loading="lazy"
+            class="absolute"
+          />
+        </div>
+
+        <ul class="flex-container" id="last-div-header">
+          <li class="flex-container">
+            <a class="flex-container" href="https://www.pccomponentes.com/compromisos" rel="noopener">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/679/679720.png"
+                alt="Cesta"
+                loading="lazy"
+              />
+              Compromisos
+            </a>
+          </li>
+
+          <li class="flex-container">
+            <a class="flex-container" href="https://www.pccomponentes.com/login" rel="noopener">
+              <img
+                src="https://cdn0.iconfinder.com/data/icons/tiny-commerce/28/User-512.png"
+                alt="Acceso a mi cuenta personal"
+                loading="lazy"
+              />
+              Mi cuenta
+            </a>
+          </li>
+          <li class="chart-div relative">
+            <a class="flex-container" href="" rel="noopener">
+              <img
+                src="./assets/carrito-de-compras.png"
+                alt="Cesta"
+                loading="lazy"
+              />
+              Mi cesta
+            </a>
+            <p id="products-buyed" >0</p>
+          </li>
+        </ul>
+      </div>
+
+      </div>
+      <div id="second-header" class="flex-container">
+        
+      <article>
+        <button class="first-button flex-container">
+          <img
+            src="./assets/menu.png"
+            class="menu-desplegable"
+            alt="imagen de menu desplegable"
+            loading="lazy"
+          />
+          Todas las categorías
+        </button>
+      </article>
+      <div class="second-btn-div flex-container">
+        <button>
+          <a
+            href="https://www.pccomponentes.com/especial-ocio-en-casa"
+            rel="noopener"
+            >Estrena TV</a
+          >
+        </button>
+        <button>
+          <a
+            id="gradient-color"
+            href="https://www.pccomponentes.com/ofertas-especiales"
+            rel="noopener"
+            >Ofertas TOP</a
+          >
+        </button>
+      </div>
+    </header>
+    <!--*FINAL DEL HEADER, A CONTINUACION VOY A HACER EL MAIN DE LA PAGINA  -->
+    <main>
+      <section id="slider" class="flex-container-column">
+        <p><span class="bold">Expertos en tecnología </span>con un servicio 5 estrellas</p>
+        <img src="https://img.pccomponentes.com/pcblog/1708902000000/1560x349-tv-s9.jpg" alt="slider">
+
+      </section>
+
+      <section id="categories" class="flex-container"> </section>
+<!-- * NUEVA SECCION PARA SELECCIONAR ARTICULOS DE ENTRE VARIOS PRODUCTOS -->
+
+<section class="flex-container" id="tienda">
+  <div class="flex-container-column first-div-tienda">
+    <img src="https://img.pccomponentes.com/pcblog/1704754800000/312x40-seleccio-n-top.png" alt="Title of tienda">
+  <p>Tus productos favoritos de tecnología con ofertas y descuentos exclusivos</p>
+  <button>Ver más</button>
+
+  <!-- aside -->
+  <aside class="filter-aside">
+
+    <article class="filter-contain flex-container-column">
+      <h3>Filtros</h3>
+      <div class="flex-container-column">
+        <label for="Valoraciones">Vendedores</label>
+        <select name="Vendedores" id="seller-select">
+          
+          <optgroup label="Sellers">
+            <option value="sellers">All sellers</option>
+            <option value="Asus">Asus</option>
+            <option value="HP">HP</option>
+            <option value="MSI">MSI</option>
+            <option value="Lenovo">Lenovo</option>
+            <option value="Acer">Acer</option>
+            <option value="Dell">Dell</option>
+          </optgroup>
+        </select>
+        </div>
+        <div class="flex-container-column">
+        <label for="Valoraciones">Valoraciones</label>
+        <select name="Stairs" id="stair-select">
+          <optgroup label="Rating">
+            <option value="all">All stairs</option>
+            <option value="5">5 Stairs</option>
+            <option value="4">4 Stairs</option>
+            <option value="3">3 Stairs</option>
+            <option value="2">2 Stairs</option>
+            <option value="1">1 Stairs</option>
+          </optgroup>
+        </select>
+      </div>
+      
+        <div class="flex-container-column">
+        <label for="price-filter">Precio</label>
+        <input type="number" name="Precio" placeholder="Precio" id="price-filter">
+        <button class="flex-container" type="submit">Buscar</button>
+      </div>
+      
+    </article>
+  </aside>
+  </div>
+  <!-- *Galery -->
+  <div class="list-div flex-container-column"> 
+  <article id="gallery" class="gallery flex-container">
+        
+  </article>
+</div>
+
+
+  
+  </section>
+
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secundary: #170453;
+  --color-bg-hover: #f2f2f2;
+  --button-color-1: #ff6000;
+  --bg-color-2: #f2f2f2;
+  --text-color-special: #118052;
+  --discount-color: #bf0019;
+  --recomend-color: #170453;
+  --text-color-black: #333333;
+  --text-color-white: #f9f8f8;
+
+  /* BORDER RADIUS */
+  --br-small: 8px;
+  --br-medium: 1.2rem;
+
+  /* SPACINGS */
+  --margin-xs: 10px;
+  --margin-s: 20px;
+  --margin-m: 30px;
+  --margin-l: 40px;
+  --margin-xl: 50px;
+  --margin-section: 100px;
+
+  --padding-xs: 10px;
+  --padding-s: 20px;
+  --padding-m: 30px;
+  --padding-l: 40px;
+  --padding-xl: 50px;
+
+  --gap-xs: 10px;
+  --gap-s: 20px;
+  --gap-m: 30px;
+  --gap-l: 40px;
+  --gap-xl: 50px;
+}
+@mixin selectPadding($radio1, $radio2, $radio3, $radio4) {
+  height: 50px;
+  padding: var(--padding-xs) var(--padding-m);
+  border-radius: $radio1 $radio2 $radio3 $radio4;
+  border: 0.2px solid rgba(128, 128, 128, 0.527);
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header {
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg-primary);
+  z-index: 10;
+
+  img {
+    cursor: pointer;
+    width: 30px;
+  }
+  #first-header {
+    height: 80px;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    gap: var(--gap-m);
+    padding: 0 var(--padding-m);
+
+    #select-div {
+      justify-content: center;
+      width: 45%;
+      gap: 0px;
+    }
+    select {
+      height: 50px;
+      width: 40%;
+      @include selectPadding(2.5px, 2.5px, 0px, 0px);
+    }
+  }
+  input {
+    width: 60%;
+    @include selectPadding(0px, 2.5px, 2.5px, 0px);
+  }
+
+  input:hover {
+    border: 1px solid var(--text-color-black);
+  }
+  input::placeholder {
+    font-size: 1rem;
+  }
+  img {
+    right: var(--margin-xs);
+  }
+}
+ul {
+  gap: var(--gap-s);
+  height: 40px;
+  li {
+    gap: var(--gap-s);
+  }
+  a.flex-container {
+    justify-content: center;
+    gap: 7.1px;
+    font-weight: 600;
+    color: var(--text-color-black);
+  }
+}
+
+#logo-img {
+  width: 135px;
+}
+#products-buyed {
+  left: 8px;
+  font-size: 0.7rem;
+  position: absolute;
+  top: -4.1px;
+  background-color: var(--discount-color);
+  color: white;
+  font-weight: 600;
+  padding: 0rem 0.2rem;
+  border-radius: 46.7%;
+}
+#second-header {
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  align-items: center;
+  padding: 0 var(--padding-xs);
+  button.first-button {
+    justify-content: center;
+    display: flex;
+    width: 193px;
+    background: transparent;
+    height: 40px;
+    margin-left: var(--margin-l);
+    gap: var(--gap-s);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+
+    img {
+      width: 18px;
+    }
+  }
+  div.second-btn-div {
+    button {
+      padding: var(--padding-xs) var(--padding-xs);
+      border: none;
+      background-color: transparent;
+      font-weight: 500;
+      a {
+        color: var(--text-color-black);
+        font-size: 0.95rem;
+      }
+    }
+    button:hover {
+      background-color: var(--color-bg-hover);
+    }
+    button:nth-child(2) {
+      a {
+        //**Esto es la forma de hacer un gradiente de color en un texto.
+        background: linear-gradient(to right, #ff6000 10.26%, #ffa90d 80.16%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: 600;
+      } //**Esto es la forma de hacer un gradiente de color en un texto.
+    }
+  }
+  button:hover {
+    background-color: var(--color-bg-hover);
+  }
+}

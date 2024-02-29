@@ -184,8 +184,13 @@ ul a.flex-container {
   font-style: normal;
 }
 
+html {
+  overscroll-behavior: smooth;
+}
+
 body {
-  background-color: #de1616;
+  max-width: 100svw;
+  background: linear-gradient(to right, #f67423 10.26%, #ffa90d 80.16%);
 }
 
 *::selection {
@@ -471,6 +476,7 @@ body {
   transition: all 1s linear;
 }
 #tienda .list-div #gallery .single-product:hover a img {
+  transition: all 0.5s linear;
   box-shadow: 7px 0px 27px -20px rgba(0, 0, 0, 0.7);
 }
 #tienda .list-div #gallery .single-product:hover h4 {

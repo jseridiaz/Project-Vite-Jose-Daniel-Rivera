@@ -283,40 +283,139 @@ const PRODUCTOS = [
 ]
 //*Creo la lista dentro del section
 let listDiv = document.querySelector('.list-div')
+
 let gallery = document.querySelector('#gallery')
 
-let arrayOption = []
+let arraySeller = []
+let arrayRating = []
+let arrayPrice = []
 
-let seller = ''
+let seller = undefined
 let valoracion = 0
+let price = ''
 
 let filterDiv = document.querySelector('#filter-contain')
 
 let filter = () => {
   let arrayFiltered = []
+  //*FILTRADO MANUAL CON 3condiciones, USANDO EL VALOR "" DE INICIO PARA LA VAR SELLER, EL VALOR-target Y EL VALOR 0 DE INICIO PARA LA VAR RATING Y USANDO LOS VALORES COGIDOS AL SELLECCIONAR CON CHANGE EL SELECT.
 
   for (const element of PRODUCTOS) {
-    if (seller.includes(element.seller)) {
+    if (
+      seller == element.seller &&
+      valoracion <= element.stars &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == element.seller &&
+      valoracion <= element.stars &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == element.seller &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == element.seller &&
+      valoracion == 'All Ratings' &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == element.seller &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.stars
+    ) {
       arrayFiltered.push(element)
     }
-    printProducts(arrayFiltered)
+
+    if (
+      seller == undefined &&
+      valoracion <= element.stars &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == undefined &&
+      valoracion <= element.stars &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == undefined &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == undefined &&
+      valoracion == 'All Ratings' &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == undefined &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.stars
+    ) {
+      arrayFiltered.push(element)
+    }
+    if (
+      seller == 'All Sellers' &&
+      valoracion <= element.stars &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == 'All Sellers' &&
+      valoracion <= element.stars &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == 'All Sellers' &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.price
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == 'All Sellers' &&
+      valoracion == 'All Ratings' &&
+      price == ''
+    ) {
+      arrayFiltered.push(element)
+    } else if (
+      seller == 'All Sellers' &&
+      valoracion == 'All Ratings' &&
+      parseInt(price) <= element.stars
+    ) {
+      arrayFiltered.push(element)
+    }
   }
+  console.log(arrayFiltered)
+
+  printProducts(arrayFiltered)
 }
 
-let optionsFill = () => {
-  arrayOption.slice(0)
+let optionsFill = (arrayToFill, category) => {
+  arrayToFill.slice(0)
   for (const element of PRODUCTOS) {
-    if (!arrayOption.includes(element.seller)) {
-      arrayOption.push(element.seller)
+    if (!arrayToFill.includes(element[category])) {
+      arrayToFill.push(element[category])
     }
   }
 }
-optionsFill()
-console.log(arrayOption)
+optionsFill(arraySeller, 'seller')
+optionsFill(arrayRating, 'stars')
+
 let sellerDivReading = document.querySelector('#seller-div')
 let ratingDivReading = document.querySelector('#rating-select')
 
-let selectCreate = (nameSelect, nameId, whereAppend) => {
+let selectCreateBrand = (nameSelect, nameId, whereAppend) => {
   let label = document.createElement('label')
   let select = document.createElement('select')
   let optGroup = document.createElement('optgroup')
@@ -326,14 +425,13 @@ let selectCreate = (nameSelect, nameId, whereAppend) => {
   label.htmlFor = nameId
   select.name = nameSelect
   select.id = nameId
-  optGroup.textContent = nameSelect
-  firstOption = 'All' + nameSelect
-  firstOption.value = nameSelect
+  optGroup.label = nameSelect
+  firstOption.textContent = `All  ${nameSelect}`
+  firstOption.value = `All ${nameSelect}`
 
-  optGroup.append(firstOption)
-  select.appendChild(optGroup)
+  optGroup.insertAdjacentElement('afterbegin', firstOption)
 
-  for (const element of arrayOption) {
+  for (const element of arraySeller) {
     let option = document.createElement('option')
 
     option.value = element
@@ -341,21 +439,101 @@ let selectCreate = (nameSelect, nameId, whereAppend) => {
 
     optGroup.appendChild(option)
   }
+  select.appendChild(optGroup)
+
+  select.addEventListener('change', (e) => {
+    seller = e.target.value
+    console.log(seller)
+    filter()
+  })
 
   whereAppend.appendChild(label)
   whereAppend.appendChild(select)
+}
 
-  filter()
-} //*Esta funcion se ejeturara dos veces para
+let priceDiv = document.querySelector('#price-div')
+// let filterPrice = () => {
+//   let arrayFilter = []
+//   for (const element of PRODUCTOS) {
+//     if (price === '') {
+//       arrayFilter.push(element)
+//     }
+//     if (parseInt(price) <= element.price) {
+//       arrayFilter.push(element)
+//     }
+//     printProducts(arrayFilter)
+//   }
+// }
+let selectCreateButton = (nameSelect, nameId, whereAppend) => {
+  let label = document.createElement('label')
+  let input = document.createElement('input')
+  let button = document.createElement('button')
+
+  label.textContent = nameSelect
+  label.htmlFor = nameId
+  input.placeholder = 'Precio'
+  input.id = nameId
+  input.type = 'number'
+  button.textContent = 'Buscar'
+  button.type = 'submit'
+  button.style.fontWeight = 600
+
+  button.addEventListener('click', () => {
+    price = input.value
+    console.log(input.value)
+    filter()
+  })
+
+  whereAppend.appendChild(label)
+  whereAppend.appendChild(input)
+  whereAppend.appendChild(button)
+}
+
+let selectCreateRating = (nameSelect, nameId, whereAppend) => {
+  let label = document.createElement('label')
+  let select = document.createElement('select')
+  let optGroup = document.createElement('optgroup')
+  let firstOption = document.createElement('option')
+
+  label.textContent = nameSelect
+  label.htmlFor = nameId
+  select.name = nameSelect
+  select.id = nameId
+  optGroup.label = nameSelect
+  firstOption.textContent = `All  ${nameSelect}`
+  firstOption.value = 'All Ratings'
+
+  optGroup.insertAdjacentElement('afterbegin', firstOption)
+
+  for (const element of arrayRating) {
+    let option = document.createElement('option')
+
+    option.value = element
+    option.textContent = element
+
+    optGroup.appendChild(option)
+  }
+  select.appendChild(optGroup)
+
+  select.addEventListener('change', (e) => {
+    valoracion = e.target.value
+
+    filter()
+  })
+
+  whereAppend.appendChild(label)
+  whereAppend.appendChild(select)
+}
+
+let arrayCategories = []
 
 let printProducts = (arrayOriginal) => {
   let gallery = document.querySelector('#gallery')
+
   gallery.innerHTML = ''
 
   let listProducts = document.createElement('ul')
   listProducts.classList.add('flex-container')
-
-  let arrayCategories = []
 
   for (const element of arrayOriginal) {
     // *CREO TODO EL CONTENIDO QUE SE INSERTA POR CADA PRODUCTO DEL ARRAY
@@ -367,6 +545,8 @@ let printProducts = (arrayOriginal) => {
     let span = document.createElement('span')
 
     let pEnvio = document.createElement('p')
+
+    //*Divs de etiqueta en las tarjetas
     let divsCreation = (texto, condicion, identificador) => {
       if (condicion) {
         let divRecom = document.createElement('div')
@@ -388,7 +568,6 @@ let printProducts = (arrayOriginal) => {
       !isNaN(element.descuento),
       'id-discount'
     )
-
     // * LE DOY CLASES Y ATRIBUTOS QUE TENDRAN EN COMUN
     // Article atributs
     articleProduct.classList.add(
@@ -419,172 +598,35 @@ let printProducts = (arrayOriginal) => {
         allStar.style.backgroundColor = 'red'
       }
     }
+
+    for (const element of arrayOriginal) {
+      if (!arrayCategories.includes(element.categoria)) {
+        arrayCategories.push(element.categoria)
+        let li = document.createElement('li')
+        li.textContent = element.categoria
+        li.style.cursor = 'pointer'
+        listProducts.appendChild(li)
+        listDiv.insertAdjacentElement('afterbegin', listProducts)
+      }
+    }
+
     span.innerHTML += ` &nbsp;  (${element.reviews}) `
 
     // pEnvio atributs
     pEnvio.textContent = element.envio
+
     anchor.appendChild(imgProduct)
     anchor.appendChild(h4)
     anchor.appendChild(p)
     anchor.appendChild(span)
     anchor.appendChild(pEnvio)
     articleProduct.appendChild(anchor)
-
     gallery.appendChild(articleProduct)
-
-    if (!arrayCategories.includes(element.categoria)) {
-      arrayCategories.push(element.categoria)
-      let li = document.createElement('li')
-      li.textContent = element.categoria
-      li.style.cursor = 'pointer'
-      listProducts.appendChild(li)
-    }
   }
-  listDiv.insertAdjacentElement('afterbegin', listProducts)
 }
+
+console.log(arraySeller)
 printProducts(PRODUCTOS)
-selectCreate('Sellers', 'id-seller', sellerDivReading)
-selectCreate('Ratings', 'id-rating', ratingDivReading)
-
-// let printShop = (arrayToGetInputs) => {
-//   let listProducts = document.createElement('ul')
-//   listProducts.classList.add('flex-container')
-
-//   let arrayCategories = []
-
-//   let select = document.querySelector('#seller-select')
-
-//   let marca = ''
-//   let rating = ''
-
-//   select.addEventListener('change', (e) => (seller = e.target.value))
-//   for (const element of arrayToGetInputs) {
-//     // *CREO TODO EL CONTENIDO QUE SE INSERTA POR CADA PRODUCTO DEL ARRAY
-//     let articleProduct = document.createElement('article')
-//     let anchor = document.createElement('a')
-//     let imgProduct = document.createElement('img')
-//     let h4 = document.createElement('h4')
-//     let p = document.createElement('p')
-//     let span = document.createElement('span')
-
-//     let pEnvio = document.createElement('p')
-//     let divsCreation = (texto, condicion, identificador) => {
-//       if (condicion) {
-//         let divRecom = document.createElement('div')
-//         let pRecom = document.createElement('p')
-//         divRecom.classList.add('absolute', 'flex-container')
-//         divRecom.id = identificador
-//         pRecom.textContent = texto
-//         divRecom.appendChild(pRecom)
-//         anchor.appendChild(divRecom)
-//         if (divRecom.id === 'id-recommend') {
-//           articleProduct.appendChild(divRecom)
-//         }
-//       }
-//     }
-//     divsCreation('Producto recomendado', element.recomendado, 'id-recommend')
-//     divsCreation('Regalo incluido', element.regalo, 'id-gift')
-//     divsCreation(
-//       `${element.descuento}%`,
-//       !isNaN(element.descuento),
-//       'id-discount'
-//     )
-
-//     // * LE DOY CLASES Y ATRIBUTOS QUE TENDRAN EN COMUN
-//     // Article atributs
-//     articleProduct.classList.add(
-//       'flex-container-column',
-//       'single-product',
-//       'relative'
-//     )
-//     // Anchor atributs
-//     anchor.href = element.url
-//     anchor.rel = 'noopener'
-//     anchor.classList.add('flex-container-column')
-//     // img atributs
-//     imgProduct.src = element.image
-//     imgProduct.loading = 'lazy'
-//     // h4 atributs
-//     h4.textContent = element.name
-//     // price atribut
-//     p.textContent = `${element.price}€`
-//     // span atributes for valorations
-//     //allstar atributs
-
-//     span.classList.add('flex-container')
-//     for (let i = 0; i < 5; i++) {
-//       let allStar = document.createElement('div')
-//       span.appendChild(allStar)
-//       allStar.classList.add('star-color')
-//       if (i < element.stars) {
-//         allStar.style.backgroundColor = 'red'
-//       }
-//     }
-//     span.innerHTML += ` &nbsp;  (${element.reviews}) `
-
-//     // pEnvio atributs
-//     pEnvio.textContent = element.envio
-
-//     //* Introducir los elementos creados dentro de sus containers
-//     anchor.appendChild(imgProduct)
-//     anchor.appendChild(h4)
-//     anchor.appendChild(p)
-//     anchor.appendChild(span)
-//     anchor.appendChild(pEnvio)
-//     articleProduct.appendChild(anchor)
-
-//     gallery.appendChild(articleProduct)
-
-//     if (!arrayCategories.includes(element.categoria)) {
-//       arrayCategories.push(element.categoria)
-//       let li = document.createElement('li')
-//       li.textContent = element.categoria
-//       li.style.cursor = 'pointer'
-//       listProducts.appendChild(li)
-//     }
-//   }
-
-//   listDiv.insertAdjacentElement('afterbegin', listProducts)
-// }
-
-// printShop(PRODUCTOS)
-// let divId = document.querySelectorAll('#id-gift')
-
-// let selectBrand = document.querySelector('#seller-select')
-// let selectRating = document.querySelector('#stair-select')
-
-// let valueSelectMarca = (select) => {
-//   select.addEventListener('change', (e) => {
-//     marca = e.target.value
-//     console.log(e.target.value)
-//   })
-// }
-// let valueSelectRating = (e) => {
-//   filterFunction
-// }
-// let allSelect = document.querySelectorAll('select')
-
-// let filterFunction = () => {
-//   PRODUCTOS = []
-//   let arrayFiltered = []
-//   rating = e.target.value
-//   marca = e.target.value
-
-//  * PRODUCTOS.forEach((element) => {
-//  *   if (marca === element.seller && rating === '') {
-//   *    arrayFiltered.push(element)
-//    * }
-// *    if (parseInt(rating) <= element.stars) {
-//  *     arrayFiltered.push(element)
-//   *  }
-//    * if (marca === element.seller && parseInt(rating) <= element.stars) {
-//     *  arrayFiltered.push(element)
-//     *}
-//  * })
-//   console.log(arrayFiltered)
-//   printShop(arrayFiltered)
-//   filterFunction(PRODUCTOS)
-// }
-
-// valueSelectRating(filterFunction)
-// allSelect.addEventListener('change', (e) => filterFunction)
+selectCreateBrand('Sellers', 'id-seller', sellerDivReading)
+selectCreateRating('Ratings', 'id-rating', ratingDivReading)
+selectCreateButton('Filtrar por precio', 'price-filter', priceDiv)

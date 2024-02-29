@@ -184,6 +184,10 @@ ul a.flex-container {
   font-style: normal;
 }
 
+body {
+  background-color: #de1616;
+}
+
 *::selection {
   background-color: orangered;
 }

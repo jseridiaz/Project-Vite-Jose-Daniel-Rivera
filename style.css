@@ -52,6 +52,7 @@
 }
 
 header {
+  width: 100%;
   justify-content: center;
   position: sticky;
   top: 0;
@@ -133,7 +134,7 @@ ul a.flex-container {
   justify-content: space-between;
   border-bottom: 1px solid gray;
   align-items: center;
-  padding: 0 var(--padding-xs);
+  padding: 0 0;
 }
 #second-header button.first-button {
   justify-content: center;
@@ -195,6 +196,10 @@ body {
 
 *::selection {
   background-color: orangered;
+}
+
+.no-display {
+  display: none;
 }
 
 .bold {
@@ -355,15 +360,27 @@ body {
   font-weight: 400;
   font-size: 1.05rem;
 }
+#tienda .list-div {
+  max-width: 100%;
+  width: 100%;
+}
 #tienda .list-div ul {
-  position: relative;
-  left: 2px;
+  width: 100%;
+  display: flex;
+  height: 200px;
+  gap: 50px;
   padding-left: var(--padding-m);
 }
-#tienda .list-div ul li {
-  font-weight: bolder;
+#tienda .list-div ul li:nth-child(1) {
+  color: rgba(0, 0, 0, 0.7647058824);
   text-decoration: underline;
-  height: fit-content;
+  font-size: 2rem;
+  font-weight: 600;
+}
+#tienda .list-div ul li:nth-child(1) ~ li {
+  color: rgba(0, 0, 0, 0.7647058824);
+  font-size: 2rem;
+  font-weight: 300;
 }
 #tienda .list-div #gallery {
   width: 100%;
@@ -371,6 +388,7 @@ body {
   flex-wrap: wrap;
   padding: var(--padding-xs) var(--padding-m);
   align-items: stretch;
+  margin-top: 7.4rem;
   gap: var(--gap-s);
 }
 #tienda .list-div #gallery .single-product {
@@ -517,14 +535,21 @@ body {
   padding: 0.5rem;
 }
 .filter-aside .filter-contain div button {
+  align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 45px;
   text-align: center;
   margin-top: var(--margin-s);
 }
 .filter-aside .filter-contain div input {
   width: 80%;
   padding: 0.3rem;
+}
+
+#tienda > .first-div-tienda > .filter-aside > .filter-contain > .btn-clear {
+  height: 70px;
+  width: 80%;
+  margin: var(--margin-section) 0 0 calc(var(--margin-m) - 1%);
 }
 
 @media screen and (max-width: 1330px) {

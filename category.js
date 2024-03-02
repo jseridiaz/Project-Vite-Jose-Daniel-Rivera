@@ -74,7 +74,7 @@ let SERVICES = [
   }
 ]
 let categoriesSection = document.querySelector('#categories')
-
+// *AQUI CREO Y IMPRIMO LAS CATEGORIAS DEL SECTION CATEGORIES DEL HTML .
 let printCategories = (arrayToGetInputs, sectionToIncludes) => {
   for (const element of arrayToGetInputs) {
     let divCategory = document.createElement('article')
@@ -98,11 +98,13 @@ let printCategories = (arrayToGetInputs, sectionToIncludes) => {
 }
 printCategories(categories, categoriesSection)
 
+// * CREO FUERA DE UNA FUNCION LA SECCION SERVICES Y EL BOTON PARA PASAR A MAS ARTICULOS, QUE NO TIENE FUNCION.
 let serviceSection = document.createElement('section')
 let button = document.createElement('button')
 let imgButton = document.createElement('img')
 
 imgButton.src = './assets/left-arrow.png'
+button.style.backgroundColor = 'white'
 imgButton.style.transform = 'rotate(180deg)'
 imgButton.loading = 'lazy'
 
@@ -209,7 +211,7 @@ const PRODUCTOS = [
     categoria: 'Ordenadores',
     name: 'Acer Nitro V 15 ANV15-51-51PQ Intel Core i5-13420H/16GB/1TB SSD/RTX 3050/15.6',
     price: 729,
-    stars: 2,
+    stars: 5,
     reviews: 194,
     seller: 'Acer',
     image:
@@ -224,7 +226,7 @@ const PRODUCTOS = [
     categoria: 'Ordenadores',
     name: 'MSI Modern 15 H B13M-015XES Intel Core i7-13620H/32GB/1TB SSD/15.6',
     price: 849,
-    stars: 3,
+    stars: 5,
     reviews: 83,
     seller: 'MSI',
     image:
@@ -281,6 +283,54 @@ const PRODUCTOS = [
   // Añade aquí al menos 9 productos más para tener un total de 10 productos
   // puedes cambiar los campos de cada objeto si es necesario para tu diseño...
 ]
+
+const COMPONENTES = [
+  {
+    categoria: 'Componentes',
+    name: 'WD BLACK SN770 1TB SSD PCIe Gen4 NVMe',
+    price: 89.98,
+    stars: 5,
+    reviews: 1095,
+    seller: 'WD',
+    image:
+      'https://thumb.pccomponentes.com/w-530-530/articles/1006/10060346/1242-wd-black-sn770-1tb-nvme-ssd.jpg',
+    envio: 'Envío gratis',
+    regalo: false,
+    recomendado: true,
+    url: 'https://www.pccomponentes.com/wd-black-sn770-1tb-ssd-pcie-gen4-nvme'
+  },
+  {
+    categoria: 'Componentes',
+    name: 'Cougar Forza 135 Ventilador CPU 120mm',
+    price: 74.99,
+    stars: 4,
+    reviews: 12,
+    seller: 'Cougar',
+    image:
+      'https://thumb.pccomponentes.com/w-530-530/articles/1072/10726510/1371-cougar-forza-135-ventilador-cpu-120mm.jpg',
+    envio: 'Envío gratis',
+    regalo: false,
+    recomendado: false,
+    descuento: 'precio más bajo',
+    url: 'https://www.pccomponentes.com/cougar-forza-135-ventilador-cpu-120mm'
+  },
+  {
+    categoria: 'Componentes',
+    name: 'Acer Predator Vesta II RGB DDR5 6000MHz 32GB 2x16GB CL30',
+    price: 129.99,
+    stars: 3,
+    reviews: 38,
+    seller: 'Acer',
+    image:
+      'https://img.pccomponentes.com/articles/1079/10791955/1162-acer-predator-vesta-ii-rgb-ddr5-6000mhz-32gb-2x16gb-cl30.jpg',
+    envio: 'Envío gratis',
+    regalo: false,
+    recomendado: false,
+    descuento: 'precio más bajo',
+    url: 'https://www.pccomponentes.com/acer-predator-vesta-ii-rgb-ddr5-6000mhz-32gb-2x16gb-cl30'
+  }
+]
+
 //*Creo la lista dentro del section
 let listDiv = document.querySelector('.list-div')
 
@@ -293,14 +343,13 @@ let arrayPrice = []
 let seller = undefined
 let valoracion = 0
 let price = ''
+let array = 'PRODUCTOS'
 
-let filterDiv = document.querySelector('#filter-contain')
-
-let filter = () => {
+let filter = (array) => {
   let arrayFiltered = []
-  //*FILTRADO MANUAL CON 3condiciones, USANDO EL VALOR "" DE INICIO PARA LA VAR SELLER, EL VALOR-target Y EL VALOR 0 DE INICIO PARA LA VAR RATING Y USANDO LOS VALORES COGIDOS AL SELLECCIONAR CON CHANGE EL SELECT.
+  //*DESPUES DE HACER UN MAPA CON LAS POSIBILIDADES QUE HAY CON TODOS LOS FILTROS. EMPIEZO CON UN CASO POR EJEMPLO SI EL PRIMER CAMPO ES IGUAL A. CON TODOS LOS MIXES POSIBLES. CUANDO SE HA COMPLETADO UNA , SEGUIR CON LAS DEMAS ( QUE SERA IGUAL) PERO VAMBIANDO EL VALOR DE LA PRIMERA CONDICION (QUE ES LA GUIA).
 
-  for (const element of PRODUCTOS) {
+  for (const element of array) {
     if (
       seller == element.seller &&
       valoracion <= element.stars &&
@@ -342,7 +391,7 @@ let filter = () => {
     } else if (
       seller == undefined &&
       valoracion <= element.stars &&
-      price == ''
+      (price == 0 || price == '')
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -396,24 +445,37 @@ let filter = () => {
       arrayFiltered.push(element)
     }
   }
-  console.log(arrayFiltered)
-
   printProducts(arrayFiltered)
 }
 
-let optionsFill = (arrayToFill, category) => {
+let optionsFill = (arrayToFill, category, arrayOrigin) => {
   arrayToFill.slice(0)
-  for (const element of PRODUCTOS) {
+  for (const element of arrayOrigin) {
     if (!arrayToFill.includes(element[category])) {
       arrayToFill.push(element[category])
     }
   }
+  arrayToFill.sort((a, b) => b - a)
 }
-optionsFill(arraySeller, 'seller')
-optionsFill(arrayRating, 'stars')
 
 let sellerDivReading = document.querySelector('#seller-div')
 let ratingDivReading = document.querySelector('#rating-select')
+
+//* Funcion que ajusta el tamaño de la imagen cuando se reduzca el numero en el filtrado. En css tienen un flex-grow1, por lo que si se queda solamente un producto impreso, ocupa todo el ancho del container y no queda bien. Así que quito esta propiedad cuando el numero de elementos son menor que 3 productos. y vuelvo a poner la propiedad para cuando el filtrado es mayor o igual que 3 productos.
+
+let functionSetWidth = () => {
+  let arrayFiltered = document.querySelectorAll('.single-product')
+  for (const element of arrayFiltered) {
+    if (arrayFiltered.length >= 0 && arrayFiltered.length <= 2) {
+      element.style.width = '350px'
+      element.style.flexGrow = 0
+    } else {
+      element.style.width = '200px'
+      element.style.flexGrow = 1
+    }
+  }
+}
+//*función que crea selector y opciones en el para los Seller. Además introduzco la función filter para filtrar cuando se escoje un valor.
 
 let selectCreateBrand = (nameSelect, nameId, whereAppend) => {
   let label = document.createElement('label')
@@ -444,7 +506,14 @@ let selectCreateBrand = (nameSelect, nameId, whereAppend) => {
   select.addEventListener('change', (e) => {
     seller = e.target.value
     console.log(seller)
-    filter()
+
+    if (array == 'PRODUCTOS') {
+      filter(PRODUCTOS)
+    } else {
+      filter(COMPONENTES)
+    }
+
+    functionSetWidth()
   })
 
   whereAppend.appendChild(label)
@@ -452,18 +521,9 @@ let selectCreateBrand = (nameSelect, nameId, whereAppend) => {
 }
 
 let priceDiv = document.querySelector('#price-div')
-// let filterPrice = () => {
-//   let arrayFilter = []
-//   for (const element of PRODUCTOS) {
-//     if (price === '') {
-//       arrayFilter.push(element)
-//     }
-//     if (parseInt(price) <= element.price) {
-//       arrayFilter.push(element)
-//     }
-//     printProducts(arrayFilter)
-//   }
-// }
+
+//*función que creo input y boton para filtrar por precio.
+
 let selectCreateButton = (nameSelect, nameId, whereAppend) => {
   let label = document.createElement('label')
   let input = document.createElement('input')
@@ -477,18 +537,26 @@ let selectCreateButton = (nameSelect, nameId, whereAppend) => {
   button.textContent = 'Buscar'
   button.type = 'submit'
   button.style.fontWeight = 600
+  button.id = 'search-price'
 
   button.addEventListener('click', () => {
     price = input.value
     console.log(input.value)
-    filter()
+
+    if (array == 'PRODUCTOS') {
+      filter(PRODUCTOS)
+      functionSetWidth()
+    } else {
+      filter(COMPONENTES)
+      functionSetWidth()
+    }
   })
 
   whereAppend.appendChild(label)
   whereAppend.appendChild(input)
   whereAppend.appendChild(button)
 }
-
+//*función que crea selector y opciones en el para el Rating. Además introduzco la función filter para filtrar cuando se escoje un valor.
 let selectCreateRating = (nameSelect, nameId, whereAppend) => {
   let label = document.createElement('label')
   let select = document.createElement('select')
@@ -503,8 +571,7 @@ let selectCreateRating = (nameSelect, nameId, whereAppend) => {
   firstOption.textContent = `All  ${nameSelect}`
   firstOption.value = 'All Ratings'
 
-  optGroup.insertAdjacentElement('afterbegin', firstOption)
-
+  optGroup.append('afterbegin', firstOption)
   for (const element of arrayRating) {
     let option = document.createElement('option')
 
@@ -518,22 +585,62 @@ let selectCreateRating = (nameSelect, nameId, whereAppend) => {
   select.addEventListener('change', (e) => {
     valoracion = e.target.value
 
-    filter()
+    if (array == 'PRODUCTOS') {
+      filter(PRODUCTOS)
+    } else {
+      filter(COMPONENTES)
+    }
+
+    functionSetWidth()
   })
 
   whereAppend.appendChild(label)
   whereAppend.appendChild(select)
 }
 
+let buttonCreateClear = () => {
+  let filterDivReading = document.querySelector('.filter-contain')
+  let button = document.createElement('button')
+  let button2 = document.querySelector('#search-price')
+
+  button.classList.add('btn-clear')
+  button.textContent = 'Limpiar Filtros'
+
+  let selectSeller = document.querySelector('#id-seller')
+  let selectRating = document.querySelector('#id-rating')
+  let selectPrice = document.querySelector('#price-filter')
+
+  button.addEventListener('click', () => {
+    selectSeller.value = 'All Sellers'
+    selectRating.value = 'All Ratings'
+    selectPrice.value = ''
+    price = ''
+    valoracion = 0
+    seller = undefined
+
+    if (array == 'PRODUCTOS') {
+      printProducts(PRODUCTOS)
+      filter(PRODUCTOS)
+    } else if (array == 'COMPONENTES') {
+      printProducts(COMPONENTES)
+      filter(COMPONENTES)
+    }
+  })
+
+  filterDivReading.appendChild(button)
+}
+// btn-clear
 let arrayCategories = []
 
+// *Creo Ul para introducir más tarde categorias según la propiedad categoria de los listados de productos
+let listProducts = document.createElement('ul')
+listProducts.classList.add('flex-container', 'ul-products')
+
+//* funcion para imprimir los articulos. Doy atributos y todo lo necesario al contenido que va dentro de cada artículo.
 let printProducts = (arrayOriginal) => {
   let gallery = document.querySelector('#gallery')
 
   gallery.innerHTML = ''
-
-  let listProducts = document.createElement('ul')
-  listProducts.classList.add('flex-container')
 
   for (const element of arrayOriginal) {
     // *CREO TODO EL CONTENIDO QUE SE INSERTA POR CADA PRODUCTO DEL ARRAY
@@ -546,7 +653,7 @@ let printProducts = (arrayOriginal) => {
 
     let pEnvio = document.createElement('p')
 
-    //*Divs de etiqueta en las tarjetas
+    //*Divs de etiquetas informativas y ofertas en las tarjetas
     let divsCreation = (texto, condicion, identificador) => {
       if (condicion) {
         let divRecom = document.createElement('div')
@@ -605,7 +712,8 @@ let printProducts = (arrayOriginal) => {
         let li = document.createElement('li')
         li.textContent = element.categoria
         li.style.cursor = 'pointer'
-        listProducts.appendChild(li)
+        li.classList.add('kind-categories')
+        listProducts.insertAdjacentElement('afterbegin', li)
         listDiv.insertAdjacentElement('afterbegin', listProducts)
       }
     }
@@ -614,7 +722,6 @@ let printProducts = (arrayOriginal) => {
 
     // pEnvio atributs
     pEnvio.textContent = element.envio
-
     anchor.appendChild(imgProduct)
     anchor.appendChild(h4)
     anchor.appendChild(p)
@@ -625,8 +732,113 @@ let printProducts = (arrayOriginal) => {
   }
 }
 
-console.log(arraySeller)
+// * Creo así aleatoriedad a los listados, para que se impriman de forma aleatoria.
+PRODUCTOS.sort((a, b) => Math.random() - Math.random())
+COMPONENTES.sort((a, b) => Math.random() - Math.random())
+
+//*Funcion que lee el array de li del section #gallery. y función que al seleccionar con click una Categoria(ordenadores o componentes) se imprima solamente el listado que coincida con esta categoría.
+let printForCategory = () => {
+  let liReading = document.querySelectorAll('.kind-categories')
+
+  for (const li of liReading) {
+    li.addEventListener('click', (e) => {
+      if (e.target.textContent === 'Ordenadores') {
+        array = 'PRODUCTOS'
+
+        printProducts(PRODUCTOS)
+      } else if (e.target.textContent === 'Componentes') {
+        array = 'Componentes'
+        printProducts(COMPONENTES)
+      }
+      if (e.target.textContent == 'Componentes') {
+        array = 'Componentes'
+        e.target.style.textDecoration = 'underline'
+        e.target.style.fontWeight = 600
+        liReading[0].style.textDecoration = 'none'
+        liReading[0].style.fontWeight = 400
+        console.log(array)
+      } else {
+        liReading[1].style.textDecoration = 'none'
+      }
+      if (e.target.textContent === 'Ordenadores') {
+        liReading[0].style.textDecoration = 'underline'
+        liReading[0].style.fontWeight = 600
+        liReading[1].style.fontWeight = 400
+      }
+    })
+  }
+}
+
+// optionsFill(arraySeller, 'seller', PRODUCTOS)
+// optionsFill(arrayRating, 'stars', PRODUCTOS)
+
+printProducts(COMPONENTES)
 printProducts(PRODUCTOS)
+printForCategory()
+
+//*Funcion que utilizo para actualizar las categorias que aparecen en los filtros según se cambie el listado de productos.
+//* Utilizando las condiciones, y bucles para aplicar el stilo display block a las opciones que estan incluidas dentro de las categorias del tipo de producto.
+let displayOptions = (category, idFiltro) => {
+  let options = document.querySelectorAll(`${idFiltro}>optgroup>option`)
+  let liReading = document.querySelectorAll('.kind-categories')
+
+  for (const option of options) {
+    option.style.display = 'none'
+    options[0].style.display = 'block'
+    for (const elementP of PRODUCTOS) {
+      if (option.value == elementP[category]) {
+        option.style.display = 'block '
+      }
+    }
+  }
+  console.log()
+  for (const li of liReading) {
+    li.addEventListener('click', (e) => {
+      if (e.target.textContent == 'Ordenadores') {
+        array = 'PRODUCTOS'
+        console.log(array)
+        for (const option of options) {
+          option.style.display = 'none'
+
+          for (const elementP of PRODUCTOS) {
+            if (option.value == elementP[category]) {
+              option.style.display = 'block'
+            }
+            if (option.value == 'All Sellers') {
+              option.style.display = 'block'
+            }
+          }
+        }
+      } else if (e.target.textContent == 'Componentes') {
+        array = 'COMPONENTES'
+
+        for (const option of options) {
+          option.style.display = 'none'
+
+          for (const elementC of COMPONENTES) {
+            if (option.value == elementC[category]) {
+              option.style.display = 'block'
+            }
+            if (option.value == 'All Sellers') {
+              option.style.display = 'block'
+            }
+          }
+          options[0].style.display = 'block'
+        }
+      }
+    })
+  }
+}
+
+optionsFill(arraySeller, 'seller', PRODUCTOS)
+optionsFill(arrayRating, 'stars', PRODUCTOS)
+optionsFill(arraySeller, 'seller', COMPONENTES)
+optionsFill(arrayRating, 'stars', COMPONENTES)
+
 selectCreateBrand('Sellers', 'id-seller', sellerDivReading)
 selectCreateRating('Ratings', 'id-rating', ratingDivReading)
 selectCreateButton('Filtrar por precio', 'price-filter', priceDiv)
+
+displayOptions('seller', '#id-seller')
+displayOptions('stars', '#id-rating')
+buttonCreateClear()

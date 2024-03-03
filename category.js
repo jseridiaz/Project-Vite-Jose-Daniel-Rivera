@@ -311,7 +311,7 @@ const COMPONENTES = [
     envio: 'Envío gratis',
     regalo: false,
     recomendado: false,
-    descuento: 'precio más bajo',
+    descuento: 10,
     url: 'https://www.pccomponentes.com/cougar-forza-135-ventilador-cpu-120mm'
   },
   {
@@ -324,7 +324,7 @@ const COMPONENTES = [
     image:
       'https://img.pccomponentes.com/articles/1079/10791955/1162-acer-predator-vesta-ii-rgb-ddr5-6000mhz-32gb-2x16gb-cl30.jpg',
     envio: 'Envío gratis',
-    regalo: false,
+    regalo: true,
     recomendado: false,
     descuento: 'precio más bajo',
     url: 'https://www.pccomponentes.com/acer-predator-vesta-ii-rgb-ddr5-6000mhz-32gb-2x16gb-cl30'
@@ -465,10 +465,14 @@ let ratingDivReading = document.querySelector('#rating-select')
 
 let functionSetWidth = () => {
   let arrayFiltered = document.querySelectorAll('.single-product')
+  let regaloDivReading = document.querySelectorAll('#id-gift')
   for (const element of arrayFiltered) {
-    if (arrayFiltered.length >= 0 && arrayFiltered.length <= 2) {
-      element.style.width = '350px'
+    if (arrayFiltered.length >= 0 && arrayFiltered.length <= 3) {
+      element.style.width = '250px'
       element.style.flexGrow = 0
+      for (const div of regaloDivReading) {
+        div.style.bottom = '42%'
+      }
     } else {
       element.style.width = '200px'
       element.style.flexGrow = 1
@@ -661,6 +665,7 @@ let printProducts = (arrayOriginal) => {
         divRecom.classList.add('absolute', 'flex-container')
         divRecom.id = identificador
         pRecom.textContent = texto
+        imgProduct.loading = 'lazy'
         divRecom.appendChild(pRecom)
         anchor.appendChild(divRecom)
         if (divRecom.id === 'id-recommend') {
@@ -749,6 +754,7 @@ let printForCategory = () => {
       } else if (e.target.textContent === 'Componentes') {
         array = 'Componentes'
         printProducts(COMPONENTES)
+        functionSetWidth()
       }
       if (e.target.textContent == 'Componentes') {
         array = 'Componentes'
@@ -842,3 +848,312 @@ selectCreateButton('Filtrar por precio', 'price-filter', priceDiv)
 displayOptions('seller', '#id-seller')
 displayOptions('stars', '#id-rating')
 buttonCreateClear()
+functionSetWidth()
+
+let arraySectionExperiences = [
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1705532400000/500x500-gaming-aspiracional.jpg',
+    h4: 'Pasión por el gaming',
+    url: 'https://www.pccomponentes.com/gaming'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1705532400000/500x500-oficina-aspiracional.jpg',
+    h4: 'Productividad y teletrabajo',
+    url: 'https://www.pccomponentes.com/oficina-y-teletrabajo'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1705532400000/500x500-tecnologi-a-estudiantes-aspiracional.jpg',
+    h4: 'Esenciales para estudiantes',
+    url: 'https://www.pccomponentes.com/tecnologia-para-estudiantes'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1705532400000/500x500-streaming-aspiracional.jpg',
+    h4: 'Creadores de contenido',
+    url: 'https://www.pccomponentes.com/especial-streaming'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1705532400000/500x500-ocio-en-casa-aspiracional.jpg',
+    h4: 'Disfruta del cine en casa',
+    url: 'https://www.pccomponentes.com/especial-ocio-en-casa'
+  }
+]
+
+let printSection = (sectionToRead, array, idDivExperience) => {
+  let sectionReading = document.querySelector(`${sectionToRead}`)
+  sectionReading.classList.add('flex-container-column')
+  let experienceDiv = document.createElement('article')
+  experienceDiv.classList.add('flex-container')
+  experienceDiv.id = `${idDivExperience}`
+
+  for (const element of array) {
+    let article = document.createElement('article')
+
+    let a = document.createElement('a')
+    let img = document.createElement('img')
+    let h4 = document.createElement('h4')
+
+    article.classList.add('flex-container-column', 'single-experience')
+    a.href = element.url
+    img.src = element.imgUrl
+    h4.textContent = element.h4
+
+    article.appendChild(a)
+    a.appendChild(img)
+    article.appendChild(h4)
+    experienceDiv.appendChild(article)
+    sectionReading.appendChild(experienceDiv)
+  }
+}
+printSection(
+  '#experience-section',
+  arraySectionExperiences,
+  'experience-section'
+)
+
+let arraySectionTendences = [
+  {
+    imgUrl:
+      'https://cdn.pccomponentes.com/img/repositorio/maincategoryid/id-fam-1115.jpg?2',
+    h4: 'Portátiles',
+    url: 'https://www.pccomponentes.com/portatiles'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1671404400000/familia-pccom-500x500.jpg',
+    h4: 'Sobremesa',
+    url: 'https://www.pccomponentes.com/sobremesa'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1679439600000/familia-smartphones-500x500.png',
+    h4: 'Smartphones',
+    url: 'https://www.pccomponentes.com/smartphone-moviles'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1678834800000/auriculares500x500.png',
+    h4: 'Auriculares',
+    url: 'https://www.pccomponentes.com/auriculares'
+  },
+  {
+    imgUrl:
+      'https://img.pccomponentes.com/pcblog/1673564400000/familia-televisores-500x500-producto.jpg',
+    h4: 'Televisores',
+    url: 'https://www.pccomponentes.com/televisores'
+  },
+  {
+    imgUrl:
+      'https://cdn.pccomponentes.com/img/repositorio/maincategoryid/id-fam-5.jpg?3',
+    h4: 'Discos Duros',
+    url: 'https://www.pccomponentes.com/discos-duros'
+  }
+]
+
+printSection('#tendences-sections', arraySectionTendences, 'div-tendences')
+
+let arrayCompanies = [
+  {
+    brand: 'Hp',
+    img: 'https://cdn.pccomponentes.com/img/repositorio/home/1024px-hp-logo-2012-1.webp',
+    url: 'https://www.pccomponentes.com/hp-store'
+  },
+  {
+    brand: 'Samsung',
+    img: 'https://cdn.pccomponentes.com/img/repositorio/home/image-8.webp',
+    url: 'https://www.pccomponentes.com/samsung'
+  },
+  {
+    brand: 'Iphone',
+    img: 'https://cdn.pccomponentes.com/img/repositorio/home/path4.webp',
+    url: 'https://www.pccomponentes.com/espacio-apple'
+  },
+  {
+    brand: 'Intel',
+    img: 'https://img.pccomponentes.com/pcblog/1666648800000/frame-10867-1.png',
+    url: 'https://www.pccomponentes.com/espacio-intel'
+  },
+  {
+    brand: 'Chromebook',
+    img: 'https://img.pccomponentes.com/pcblog/1666648800000/chromebook-lockup-color-web-1-1.png',
+    url: 'https://www.pccomponentes.com/chromebook-es-mas-que-un-portatil'
+  },
+  {
+    brand: 'Logitech',
+    img: 'https://img.pccomponentes.com/pcblog/1676329200000/logitech-logo.png',
+    url: 'https://www.pccomponentes.com/brand-corner-logitech'
+  }
+]
+
+let printCompanies = (array, grad) => {
+  let mainSectionReading = document.querySelector('#companies-section')
+  mainSectionReading.classList.add('flex-container', 'relative')
+  let button = document.createElement('button')
+  let imgButton = document.createElement('img')
+
+  imgButton.src = './assets/left-arrow.png'
+  button.classList.add('absolute')
+  button.style.backgroundColor = 'white'
+  imgButton.style.transform = `rotate(${grad})`
+  imgButton.loading = 'lazy'
+
+  for (const element of array) {
+    let a = document.createElement('a')
+    let img = document.createElement('img')
+
+    a.href = element.url
+    img.src = element.img
+    img.loading = 'lazy'
+
+    button.append(imgButton)
+    mainSectionReading.appendChild(button)
+    a.append(img)
+    mainSectionReading.appendChild(a)
+  }
+}
+printCompanies(arrayCompanies, '180deg')
+
+let arrayBlog = [
+  {
+    img: 'https://img.pccomponentes.com/pcblog/98/que-es-placa-base.jpg',
+    url: 'https://www.pccomponentes.com/ruido-ventilador-ordenador-causa-solucion',
+    h4: '¿Qué es una placa base y cual es su función?',
+    p: '¿Sabes que es una placa base , que tipos hay y cuales son sus características? Te ayudamos a elegir la mejor para que¿Sabes qué es una placa base, qué tipos hay y cuáles son sus características? Te ayudamos a elegir la mejor para que consigas el equipo que deseas.'
+  },
+  {
+    img: 'https://img.pccomponentes.com/pcblog/177/ruido-ordenador.jpg',
+    url: 'https://www.pccomponentes.com/ruido-ventilador-ordenador-causa-solucion',
+    h4: '¿Por qué hace ruido mi PC? Cómo reducir el ruido de mi ordenador',
+    p: 'Has notado que tu ordenador ha empezado a hacer más ruido de lo normal. Te explicamos cuál puede ser la causa, te ayudamos a solucionarlo y cómo evitar que ocurra.'
+  },
+  {
+    img: 'https://img.pccomponentes.com/pcblog/937/home-office-569153-640.jpg',
+    url: 'https://www.pccomponentes.com/ordenador-se-calienta-mucho-y-se-apaga',
+    h4: 'Mi ordenador se calienta mucho y a veces se apaga, ¿qué hago?',
+    p: 'La temperatura de un PC es un factor clave que influye en su rendimiento. Te explicamos las causas probables de su exceso de calor y algunos trucos y medidas perfectos para favorecer la ventilación y su enfriamiento.'
+  }
+]
+
+let createBlog = (array) => {
+  let blog = document.querySelector('#blog-part')
+  let h3 = document.createElement('h3')
+  let divContainer = document.createElement('div')
+
+  h3.textContent = 'En nuestro blog'
+  blog.classList.add('grid-container')
+
+  divContainer.classList.add('grid-container')
+  divContainer.id = 'container-articles'
+
+  for (const element of array) {
+    let article = document.createElement('article')
+    let a = document.createElement('a')
+    let divImg = document.createElement('div')
+    let img = document.createElement('img')
+    let infoDiv = document.createElement('div')
+    let h4 = document.createElement('h4')
+    let p = document.createElement('p')
+    let button = document.createElement('button')
+    let imgArrow = document.createElement('img')
+
+    article.classList.add('single-article', 'flex-container-column')
+
+    a.href = element.url
+    a.target = '_blank'
+    a.classList.add('relative')
+    img.src = element.img
+    img.classList.add('single-img')
+    infoDiv.classList.add('flex-container-column', 'absolute')
+    h4.textContent = element.h4
+    p.textContent = element.p
+    button.textContent = 'Ver más'
+    imgArrow.src = './assets/right-arrow.png'
+
+    button.appendChild(imgArrow)
+    infoDiv.appendChild(h4)
+    infoDiv.appendChild(p)
+    infoDiv.appendChild(button)
+    divImg.appendChild(img)
+    a.appendChild(divImg)
+    a.appendChild(infoDiv)
+    article.appendChild(a)
+    divContainer.appendChild(article)
+  }
+  let articleNew = document.createElement('article')
+  let h2 = document.createElement('h2')
+  let aImg = document.createElement('a')
+  let imgAdversitting = document.createElement('img')
+  let buttonDiv = document.createElement('div')
+  let newp = document.createElement('p')
+  let newButton = document.createElement('button')
+
+  articleNew.id = 'article-adversiting'
+  articleNew.classList.add('flex-container')
+  imgAdversitting.src =
+    'https://img.pccomponentes.com/pcblog/1708902000000/500x500-35.png'
+  h2.textContent = 'Consigue tu premio para el PcAniversario'
+  newp.textContent =
+    'Cupones descuento de hasta 50€ y cada día un nuevo premio exclusivo.'
+  newButton.textContent = 'Participar ahora'
+  aImg.href = 'https://www.pccomponentes.com/aniversario'
+
+  blog.appendChild(h3)
+  blog.appendChild(divContainer)
+
+  articleNew.appendChild(h2)
+
+  aImg.appendChild(imgAdversitting)
+  articleNew.appendChild(aImg)
+
+  buttonDiv.appendChild(newp)
+  buttonDiv.appendChild(newButton)
+  articleNew.appendChild(buttonDiv)
+
+  blog.appendChild(articleNew)
+}
+createBlog(arrayBlog)
+
+let arrayLastInfo = [
+  {
+    img: 'https://cdn.pccomponentes.com/img/iconos/64px_truck_delivery.png',
+    p: 'Envíos gratuitos en pedidos superiores a 50€.',
+    url: 'https://www.pccomponentes.com/soporte/promocion-de-envio-gratuito',
+    bold: 'Envíos gratuitos'
+  },
+  {
+    img: 'https://cdn.pccomponentes.com/img/iconos/64px_hold.png',
+    p: ' Recibe tu pedido en 24h.',
+    url: 'https://www.pccomponentes.com/soporte/plazos-de-entrega',
+    bold: ''
+  },
+  {
+    img: 'https://cdn.pccomponentes.com/img/iconos/64px_refresh.png',
+    p: ' Devoluciones gratuitas y garantía de sustitución 24h.',
+    url: 'https://www.pccomponentes.com/soporte/devoluciones-y-garantias',
+    bold: 'Devoluciones gratuitas'
+  }
+]
+
+let lasInfo = (array) => {
+  let sectionLastInfo = document.createElement('section')
+  sectionLastInfo.classList.add('flex-container')
+
+  for (const element of array) {
+    let article = document.createElement('article')
+    let a = document.createElement('a')
+    let img = document.createElement('img')
+    let span = document.createElement('span')
+    let p = document.createElement('p')
+
+    article.classList.add('flex-container')
+    a.href = element.url
+    img.src = element.img
+    span.classList.add('bold')
+    span.textContent = element.bold
+    p.textContent = element.p
+  }
+}

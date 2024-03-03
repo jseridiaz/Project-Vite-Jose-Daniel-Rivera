@@ -211,6 +211,10 @@ ol {
   list-style: none;
 }
 
+.grid-container {
+  display: grid;
+}
+
 button {
   cursor: pointer;
 }
@@ -550,6 +554,266 @@ body {
   height: 70px;
   width: 80%;
   margin: var(--margin-section) 0 0 calc(var(--margin-m) - 1%);
+}
+
+#experience-section {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: var(--margin-s);
+  align-items: center;
+  padding: var(--padding-s) var(--padding-l);
+  background-color: var(--color-bg-primary);
+}
+#experience-section h3 {
+  color: white;
+  font-size: 4rem;
+  width: 100%;
+  text-align: center;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 2px 1px 6px black;
+}
+#experience-section p {
+  font-size: 2rem;
+  width: 100%;
+}
+#experience-section .single-experience {
+  align-items: center;
+  width: 250px;
+  gap: var(--gap-s);
+}
+#experience-section a {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--br-medium);
+}
+#experience-section a img {
+  border-radius: var(--br-medium);
+  width: 100%;
+  transition: all 1s ease-in;
+  height: 100%;
+}
+#experience-section a img:hover {
+  transform: scale(1.1);
+}
+#experience-section h4 {
+  font-size: 1rem;
+}
+
+#tendences-sections {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: var(--margin-s);
+  align-items: center;
+  padding: var(--padding-s) var(--padding-xs);
+}
+#tendences-sections h3 {
+  color: rgb(21, 21, 21);
+  font-size: 2rem;
+  width: 100%;
+  padding: 2rem;
+}
+#tendences-sections #div-tendences {
+  width: 100%;
+  padding: 0 calc(var(--padding-m) - 2px);
+  gap: var(--gap-s);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#tendences-sections #div-tendences .single-experience {
+  align-items: center;
+  width: 200px;
+  gap: var(--gap-s);
+}
+#tendences-sections #div-tendences a {
+  object-fit: cover;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--br-medium);
+}
+#tendences-sections #div-tendences a img {
+  border-radius: var(--br-medium);
+  width: 100%;
+  transition: all 1s ease-in;
+  height: 100%;
+}
+#tendences-sections #div-tendences a img:hover {
+  transform: scale(1.1);
+}
+#tendences-sections #div-tendences h4 {
+  font-size: 1rem;
+}
+
+#companies-section {
+  background-color: var(--bg-color-2);
+  width: 100%;
+  height: 150px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--margin-section);
+}
+#companies-section button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 0.6px solid gray;
+  text-align: center;
+  border-radius: var(--br-small);
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50px;
+  text-align: center;
+}
+#companies-section button img {
+  width: 40%;
+  height: 30%;
+}
+#companies-section a {
+  display: flex;
+  justify-content: center;
+  width: 190px;
+  height: 80px;
+}
+#companies-section a img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+#blog-part {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 1fr 1fr;
+  background-color: var(--color-bg-primary);
+  padding: var(--padding-m);
+  height: auto;
+  align-items: start;
+}
+#blog-part h3 {
+  padding: 2px;
+  grid-column: 1/-1;
+  font-size: 2rem;
+}
+#blog-part #container-articles {
+  grid-column: 1/-1;
+  grid-row: 2/-1;
+  grid-template-columns: repeat(3, minmax(300px, 600px));
+  justify-content: start;
+  align-items: start;
+  max-width: 100%;
+  gap: var(--gap-s);
+  height: 600px;
+}
+#blog-part #container-articles .single-article {
+  width: 100%;
+  justify-items: center;
+}
+#blog-part #container-articles .single-article div:first-child {
+  width: 100%;
+  border-radius: var(--br-medium);
+  overflow: hidden;
+  transition: all 0.7s;
+}
+#blog-part #container-articles .single-article div:first-child img.single-img {
+  width: 100%;
+  border-radius: var(--br-medium);
+  transition: all 1s;
+}
+#blog-part #container-articles .single-article div:first-child img.single-img:hover {
+  transform: scale(1.1);
+  filter: brightness(110%) saturate(120%);
+}
+#blog-part #container-articles .single-article div:last-child {
+  gap: var(--gap-s);
+  padding: var(--padding-s) var(--padding-m);
+  background-color: white;
+  border-radius: var(--br-medium) var(--br-medium) 0 0;
+  bottom: -170px;
+  z-index: 4;
+}
+#blog-part #container-articles .single-article div:last-child h4 {
+  color: black;
+}
+#blog-part #container-articles .single-article div:last-child p {
+  color: black;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+#blog-part #container-articles .single-article div:last-child button {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  width: 100px;
+  height: 50px;
+  background: transparent;
+  border: none;
+}
+#blog-part #container-articles .single-article div:last-child button img {
+  margin-left: var(--margin-xs);
+  width: 20%;
+}
+#blog-part #container-articles .single-article div:first-child:hover {
+  box-shadow: 4px -1px 13px 0px rgba(0, 0, 0, 0.77);
+}
+#blog-part .single-article:first-child {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+#blog-part .single-article:nth-child(2) {
+  grid-column: 2/3;
+  position: relative;
+  top: 120px;
+}
+#blog-part .single-article:last-child {
+  grid-column: 3/4;
+  position: relative;
+  bottom: 60px;
+}
+
+#article-adversiting {
+  grid-column: 1/-1;
+  justify-content: space-between;
+  margin-top: 158px;
+  background-color: black;
+  height: 400px;
+}
+#article-adversiting h2 {
+  color: var(--text-color-white);
+  font-size: 2.4rem;
+  font-weight: 800;
+  width: 32%;
+  align-self: start;
+  padding: 3rem 2rem;
+}
+#article-adversiting img {
+  width: 60%;
+  position: relative;
+  left: 40px;
+}
+#article-adversiting div {
+  width: 400px;
+  align-items: center;
+  margin-right: var(--margin-xl);
+}
+#article-adversiting div p {
+  color: var(--text-color-white);
+  font-size: 1rem;
+  min-width: 200px;
+  width: 300px;
+  text-align: center;
+}
+#article-adversiting div button {
+  margin-top: var(--margin-m);
+  margin-left: var(--margin-xs);
+  width: 250px;
+  height: 70px;
+  background-color: var(--button-color-1);
+  color: var(--text-color-white);
+  font-weight: 600;
+  border-radius: var(--br-small);
 }
 
 @media screen and (max-width: 1330px) {

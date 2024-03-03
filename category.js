@@ -1132,28 +1132,46 @@ let arrayLastInfo = [
   },
   {
     img: 'https://cdn.pccomponentes.com/img/iconos/64px_refresh.png',
-    p: ' Devoluciones gratuitas y garantía de sustitución 24h.',
+    p: 'Devoluciones gratuitas y garantía de sustitución 24h.',
     url: 'https://www.pccomponentes.com/soporte/devoluciones-y-garantias',
     bold: 'Devoluciones gratuitas'
   }
 ]
 
-let lasInfo = (array) => {
+let lastInfo = (array) => {
   let sectionLastInfo = document.createElement('section')
   sectionLastInfo.classList.add('flex-container')
+
+  let main = document.querySelector('main')
 
   for (const element of array) {
     let article = document.createElement('article')
     let a = document.createElement('a')
     let img = document.createElement('img')
-    let span = document.createElement('span')
     let p = document.createElement('p')
 
     article.classList.add('flex-container')
     a.href = element.url
+    a.target = '_blank'
     img.src = element.img
-    span.classList.add('bold')
-    span.textContent = element.bold
     p.textContent = element.p
+
+    if (p.textContent.indexOf(`${element.bold}`) != -1) {
+      let sustitución = p.textContent.replace(
+        `${element.bold}`,
+        `<span class="bold">${element.bold}</span>`
+      )
+      p.innerHTML = sustitución
+    }
+
+    a.appendChild(img)
+    a.appendChild(p)
+    article.appendChild(a)
+    sectionLastInfo.appendChild(article)
   }
+  main.appendChild(sectionLastInfo)
 }
+lastInfo(arrayLastInfo)
+
+let prueba = document.querySelector('#prueba')
+console.log(prueba)

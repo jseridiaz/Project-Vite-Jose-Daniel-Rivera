@@ -181,17 +181,17 @@ const PRODUCTOS = [
   },
   {
     categoria: 'Ordenadores',
-    name: 'MSI Modern 15 B7M-243XES AMD Ryzen 7 7730U/16GB/512GB SSD/15.6',
-    price: 579,
+    name: 'MSI Katana 15 B12VFK-1412XES Intel Core i7-12650H/16GB/1TB SSD/RTX 4060/15.6',
+    price: 949,
     stars: 3,
-    reviews: 171,
+    reviews: 235,
     seller: 'MSI',
     image:
-      'https://thumb.pccomponentes.com/w-530-530/articles/1074/10741661/1707-msi-modern-15-b7m-243xes-amd-ryzen-7-7730u-16gb-512gb-ssd-156.jpg',
+      'https://thumb.pccomponentes.com/w-530-530/articles/1074/10745697/1538-msi-katana-15-b12vfk-1412xes-intel-core-i7-12650h-16gb-1tb-ssd-rtx-4060-156.jpg',
     envio: 'Envío gratis',
     regalo: false,
     recomendado: false,
-    url: 'https://www.pccomponentes.com/msi-modern-15-b7m-243xes-amd-ryzen-7-7730u-16gb-512gb-ssd-156'
+    url: 'https://www.pccomponentes.com/msi-katana-15-b12vfk-1412xes-intel-core-i7-12650h-16gb-1tb-ssd-rtx-4060-156'
   },
   {
     categoria: 'Ordenadores',
@@ -328,6 +328,21 @@ const COMPONENTES = [
     recomendado: false,
     descuento: 'precio más bajo',
     url: 'https://www.pccomponentes.com/acer-predator-vesta-ii-rgb-ddr5-6000mhz-32gb-2x16gb-cl30'
+  },
+  {
+    categoria: 'Componentes',
+    name: 'Forgeon Mithril ARGB Mesh Torre ATX Negra',
+    price: 109.99,
+    stars: 5,
+    reviews: 433,
+    seller: 'Forgeon',
+    image:
+      'https://thumb.pccomponentes.com/w-530-530/articles/43/433840/1336-forgeon-mithril-argb-mesh-torre-atx-negra-comprar.jpg',
+    envio: 'Envío gratis',
+    regalo: false,
+    recomendado: false,
+    descuento: 35,
+    url: 'https://www.pccomponentes.com/forgeon-mithril-argb-mesh-torre-atx-negra'
   }
 ]
 
@@ -1141,6 +1156,7 @@ let arrayLastInfo = [
 let lastInfo = (array) => {
   let sectionLastInfo = document.createElement('section')
   sectionLastInfo.classList.add('flex-container')
+  sectionLastInfo.id = 'last-info-section'
 
   let main = document.querySelector('main')
 
@@ -1150,8 +1166,9 @@ let lastInfo = (array) => {
     let img = document.createElement('img')
     let p = document.createElement('p')
 
-    article.classList.add('flex-container')
+    article.classList.add('flex-container', 'single-promotion')
     a.href = element.url
+    a.classList.add('flex-container')
     a.target = '_blank'
     img.src = element.img
     p.textContent = element.p

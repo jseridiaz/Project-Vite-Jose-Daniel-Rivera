@@ -1189,6 +1189,3 @@ let lastInfo = (array) => {
   main.appendChild(sectionLastInfo)
 }
 lastInfo(arrayLastInfo)
-
-let prueba = document.querySelector('#prueba')
-console.log(prueba)

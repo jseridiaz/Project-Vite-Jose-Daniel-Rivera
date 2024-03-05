@@ -53,6 +53,10 @@
   justify-content: center;
 }
 
+input#menu {
+  display: none;
+}
+
 header {
   width: 100%;
   justify-content: center;
@@ -247,6 +251,10 @@ body {
 }
 #slider img {
   border-radius: var(--br-medium);
+}
+
+#menu-mobile {
+  display: none;
 }
 
 #categories {
@@ -966,7 +974,7 @@ footer {
   flex-direction: column;
   gap: var(--gap-xs);
   justify-content: start;
-  height: 200px;
+  height: 237px;
   transition: all 0.5s linear;
 }
 #footer-page .allContainer article ul a:hover {
@@ -982,6 +990,10 @@ footer {
   width: 100%;
   margin-top: var(--margin-m);
   text-align: center;
+}
+
+.display {
+  display: block;
 }
 
 @media screen and (max-width: 1330px) {
@@ -1006,7 +1018,76 @@ footer {
   #tienda .list-div #gallery .single-product:nth-child(9) ~ .single-product a #id-gift {
     bottom: 241px;
   }
+  #menu-mobile {
+    display: block;
+    cursor: pointer;
+  }
+  #last-div-header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    gap: 70px;
+    background-color: #4206f5;
+    height: 100svh;
+    padding: 0rem;
+    align-items: center;
+    width: 0px;
+    transition: all 0.7s ease-in-out;
+  }
+  #last-div-header a {
+    height: 40px;
+    transform: scale(1.2);
+  }
+  #last-div-header a img {
+    position: relative;
+    top: 10px;
+  }
+  #last-div-header * {
+    display: none;
+  }
+  img {
+    background-color: white;
+  }
 }
+#menu:checked ~ ul {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+#menu:checked ~ ul * {
+  display: block;
+}
+#menu:checked ~ ul li {
+  position: relative;
+  bottom: 100px;
+}
+#menu:checked ~ ul li a {
+  color: var(--text-color-white);
+  width: 100%;
+}
+#menu:checked ~ ul li a img {
+  display: inline-block;
+}
+
+header #first-header #select-div {
+  width: 70%;
+}
+header #first-header #select-div #select {
+  font-size: 0.7rem;
+}
+header #first-header #select-div input {
+  width: 40%;
+}
+header #first-header #select-div img {
+  right: 76px;
+}
+
+li:first-child {
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 1112px) {
   #tienda .list-div #gallery .single-product:nth-child(8) ~ .single-product a #id-gift {
     bottom: 244px;
@@ -1021,6 +1102,26 @@ footer {
   }
   #tienda .list-div #gallery .single-product:nth-child(10) ~ .single-product a #id-gift {
     bottom: 182px;
+  }
+}
+@media screen and (max-width: 780px) {
+  header #first-header #select-div {
+    width: 50%;
+  }
+  header #first-header #select-div img {
+    left: 256px;
+  }
+  header #first-header #select-div select {
+    font-size: 0.57rem;
+    padding: 0;
+  }
+  header #first-header #select-div input {
+    padding: 0;
+  }
+  header #first-header #select-div input::placeholder {
+    font-size: 0.8rem;
+    position: relative;
+    left: 10px;
   }
 }
 

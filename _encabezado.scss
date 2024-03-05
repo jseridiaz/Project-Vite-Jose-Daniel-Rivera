@@ -58,6 +58,10 @@
   flex-direction: column;
   justify-content: center;
 }
+input#menu {
+  display: none;
+}
+
 header {
   width: 100%;
   justify-content: center;
@@ -103,6 +107,7 @@ header {
     right: var(--margin-xs);
   }
 }
+
 ul {
   gap: var(--gap-s);
   height: 40px;

@@ -1122,7 +1122,7 @@ header #first-header #select-div input {
   width: 40%;
 }
 header #first-header #select-div img {
-  right: 76px;
+  right: 90px;
 }
 
 @media screen and (max-width: 1112px) {

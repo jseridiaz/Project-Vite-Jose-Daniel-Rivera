@@ -489,7 +489,7 @@ let functionSetWidth = () => {
         div.style.bottom = '42%'
       }
     } else {
-      element.style.width = '200px'
+      element.style.width = '250px'
       element.style.flexGrow = 1
     }
   }
@@ -754,6 +754,7 @@ let printProducts = (arrayOriginal) => {
 
 // * Creo así aleatoriedad a los listados, para que se impriman de forma aleatoria.
 PRODUCTOS.sort((a, b) => Math.random() - Math.random())
+
 COMPONENTES.sort((a, b) => Math.random() - Math.random())
 
 //*Funcion que lee el array de li del section #gallery. y función que al seleccionar con click una Categoria(ordenadores o componentes) se imprima solamente el listado que coincida con esta categoría.
@@ -864,6 +865,8 @@ displayOptions('seller', '#id-seller')
 displayOptions('stars', '#id-rating')
 buttonCreateClear()
 functionSetWidth()
+let PRODUCTSREADING = document.querySelectorAll('.single-product')
+console.log(PRODUCTSREADING[PRODUCTSREADING.length - 1].offsetWidth)
 
 let arraySectionExperiences = [
   {

@@ -109,13 +109,22 @@ header {
 }
 
 ul {
+  width: 30%;
   gap: var(--gap-s);
-  height: 40px;
+  height: 70px;
   li {
+    width: 39%;
+
     gap: var(--gap-s);
+    align-items: center;
+    font-size: 0.7rem;
+    a {
+      text-wrap: nowrap;
+    }
   }
   a.flex-container {
     justify-content: center;
+    align-items: center;
     gap: 7.1px;
     font-weight: 600;
     color: var(--text-color-black);
@@ -153,7 +162,6 @@ ul {
     border: none;
     cursor: pointer;
     font-size: 0.85rem;
-
     img {
       width: 18px;
     }
@@ -184,5 +192,13 @@ ul {
   }
   button:hover {
     background-color: var(--color-bg-hover);
+  }
+}
+@media screen and (max-width: 1160px) {
+  ul {
+    width: 30%;
+    gap: var(--gap-s);
+    height: 70px;
+    margin-right: 20px;
   }
 }

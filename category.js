@@ -368,7 +368,7 @@ let filter = (array) => {
     if (
       seller == element.seller &&
       valoracion <= element.stars &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -380,7 +380,7 @@ let filter = (array) => {
     } else if (
       seller == element.seller &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -392,7 +392,7 @@ let filter = (array) => {
     } else if (
       seller == element.seller &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.stars
+      parseInt(price) >= element.stars
     ) {
       arrayFiltered.push(element)
     }
@@ -400,7 +400,7 @@ let filter = (array) => {
     if (
       seller == undefined &&
       valoracion <= element.stars &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -412,7 +412,7 @@ let filter = (array) => {
     } else if (
       seller == undefined &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -424,14 +424,14 @@ let filter = (array) => {
     } else if (
       seller == undefined &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.stars
+      parseInt(price) >= element.stars
     ) {
       arrayFiltered.push(element)
     }
     if (
       seller == 'All Sellers' &&
       valoracion <= element.stars &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -443,7 +443,7 @@ let filter = (array) => {
     } else if (
       seller == 'All Sellers' &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.price
+      parseInt(price) >= element.price
     ) {
       arrayFiltered.push(element)
     } else if (
@@ -455,7 +455,7 @@ let filter = (array) => {
     } else if (
       seller == 'All Sellers' &&
       valoracion == 'All Ratings' &&
-      parseInt(price) <= element.stars
+      parseInt(price) >= element.stars
     ) {
       arrayFiltered.push(element)
     }

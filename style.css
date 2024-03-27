@@ -65,10 +65,12 @@ header {
   background-color: var(--color-bg-primary);
   z-index: 10;
 }
+
 header img {
   cursor: pointer;
   width: 30px;
 }
+
 header #first-header {
   height: 80px;
   justify-content: space-between;
@@ -76,11 +78,13 @@ header #first-header {
   gap: var(--gap-m);
   padding: 0 var(--padding-m);
 }
+
 header #first-header #select-div {
   justify-content: center;
   width: 45%;
   gap: 0px;
 }
+
 header #first-header select {
   height: 50px;
   width: 40%;
@@ -89,6 +93,7 @@ header #first-header select {
   border-radius: 2.5px 2.5px 0px 0px;
   border: 0.2px solid rgba(128, 128, 128, 0.527);
 }
+
 header input {
   width: 60%;
   height: 50px;
@@ -96,12 +101,15 @@ header input {
   border-radius: 0px 2.5px 2.5px 0px;
   border: 0.2px solid rgba(128, 128, 128, 0.527);
 }
+
 header input:hover {
   border: 1px solid var(--text-color-black);
 }
+
 header input::placeholder {
   font-size: 1rem;
 }
+
 header img {
   right: var(--margin-xs);
 }
@@ -111,15 +119,18 @@ ul {
   gap: var(--gap-s);
   height: 70px;
 }
+
 ul li {
   width: 39%;
   gap: var(--gap-s);
   align-items: center;
   font-size: 0.7rem;
 }
+
 ul li a {
   text-wrap: nowrap;
 }
+
 ul a.flex-container {
   justify-content: center;
   align-items: center;
@@ -150,6 +161,7 @@ ul a.flex-container {
   align-items: center;
   padding: 0 0;
 }
+
 #second-header button.first-button {
   justify-content: center;
   display: flex;
@@ -163,28 +175,34 @@ ul a.flex-container {
   cursor: pointer;
   font-size: 0.85rem;
 }
+
 #second-header button.first-button img {
   width: 18px;
 }
+
 #second-header div.second-btn-div button {
   padding: var(--padding-xs) var(--padding-xs);
   border: none;
   background-color: transparent;
   font-weight: 500;
 }
+
 #second-header div.second-btn-div button a {
   color: var(--text-color-black);
   font-size: 0.95rem;
 }
+
 #second-header div.second-btn-div button:hover {
   background-color: var(--color-bg-hover);
 }
+
 #second-header div.second-btn-div button:nth-child(2) a {
   background: linear-gradient(to right, #ff6000 10.26%, #ffa90d 80.16%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-weight: 600;
 }
+
 #second-header button:hover {
   background-color: var(--color-bg-hover);
 }
@@ -265,6 +283,7 @@ body {
   padding: var(--padding-s) var(--padding-l);
   gap: var(--gap-s);
 }
+
 #slider img {
   border-radius: var(--br-medium);
 }
@@ -281,12 +300,14 @@ body {
   height: fit-content;
   flex-wrap: wrap;
 }
+
 #categories article {
   min-width: 170px;
   width: 15%;
   display: flex;
   height: 250px;
 }
+
 #categories article a {
   height: 100%;
   display: flex;
@@ -296,10 +317,12 @@ body {
   gap: var(--gap-xs);
   width: 100%;
 }
+
 #categories article img {
   width: 100%;
   border-radius: var(--br-medium);
 }
+
 #categories article h3 {
   text-align: center;
   font-size: 0.9rem;
@@ -315,6 +338,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 #services article {
   min-width: 100px;
   width: 15%;
@@ -323,6 +347,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #services article a {
   height: 200px;
   display: flex;
@@ -332,11 +357,13 @@ body {
   gap: var(--gap-s);
   width: 100%;
 }
+
 #services article img {
   width: 80px;
   height: 80px;
   border-radius: var(--br-medium);
 }
+
 #services article h3 {
   text-align: center;
   font-size: 0.8rem;
@@ -345,6 +372,7 @@ body {
   color: var(--text-color-black);
   hyphens: manual;
 }
+
 #services button {
   width: 50px;
   height: 50px;
@@ -357,6 +385,7 @@ body {
   right: 20px;
   top: 50px;
 }
+
 #services button img {
   width: 40%;
 }
@@ -366,6 +395,7 @@ body {
   align-items: start;
   height: 100%;
 }
+
 #tienda .first-div-tienda {
   gap: var(--gap-s);
   width: 30%;
@@ -374,11 +404,13 @@ body {
   align-items: center;
   margin: var(--margin-m) var(--margin-xl);
 }
+
 #tienda p {
   font-size: 1.7rem;
   padding: 0 5px;
   font-weight: 700;
 }
+
 #tienda button {
   padding: 0.8rem;
   border: none;
@@ -390,10 +422,12 @@ body {
   font-weight: 400;
   font-size: 1.05rem;
 }
+
 #tienda .list-div {
   max-width: 100%;
   width: 100%;
 }
+
 #tienda .list-div ul {
   width: 100%;
   display: flex;
@@ -401,17 +435,20 @@ body {
   gap: 50px;
   padding-left: var(--padding-m);
 }
+
 #tienda .list-div ul li:nth-child(1) {
   color: rgba(0, 0, 0, 0.7647058824);
   text-decoration: underline;
   font-size: 2rem;
   font-weight: 600;
 }
+
 #tienda .list-div ul li:nth-child(1) ~ li {
   color: rgba(0, 0, 0, 0.7647058824);
   font-size: 2rem;
   font-weight: 300;
 }
+
 #tienda .list-div #gallery {
   width: 100%;
   height: fit-content;
@@ -421,6 +458,7 @@ body {
   margin-top: 7.4rem;
   gap: var(--gap-s);
 }
+
 #tienda .list-div #gallery .single-product {
   min-width: 190px;
   width: 200px;
@@ -429,6 +467,7 @@ body {
   height: fit-content;
   gap: var(--gap-xs);
 }
+
 #tienda .list-div #gallery .single-product h4 {
   overflow: hidden;
   display: -webkit-box;
@@ -438,10 +477,12 @@ body {
   width: 80%;
   transition: all;
 }
+
 #tienda .list-div #gallery .single-product p {
   font-size: 1.2rem;
   color: var(--text-color-black);
 }
+
 #tienda .list-div #gallery .single-product p:last-child {
   font-weight: 700;
   font-size: 1.3rem;
@@ -450,28 +491,40 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
+
 #tienda .list-div #gallery .single-product a {
   width: 100%;
   height: 100%;
   justify-content: space-around;
   gap: 10px;
 }
+
 #tienda .list-div #gallery .single-product a img {
   width: 100%;
   transition: all 0.7s ease-in;
 }
+
 #tienda .list-div #gallery .single-product a h4 {
   color: black;
+  padding: 5px var(--padding-s);
 }
+
+#tienda .list-div #gallery .single-product a p:not(p:first-child) {
+  padding: 0 var(--padding-s);
+}
+
 #tienda .list-div #gallery .single-product a span {
   height: 30px;
+  padding: 0 var(--padding-s);
 }
+
 #tienda .list-div #gallery .single-product a span .star-color {
   background-color: rgb(194, 194, 194);
   width: 20px;
   height: 20px;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
+
 #tienda .list-div #gallery .single-product #id-recommend {
   background-color: rgb(0, 14, 139);
   width: 90%;
@@ -483,6 +536,7 @@ body {
   z-index: 2;
   text-wrap: nowrap;
 }
+
 #tienda .list-div #gallery .single-product #id-recommend p {
   font-size: 1rem;
   text-align: center;
@@ -490,6 +544,7 @@ body {
   -webkit-text-fill-color: initial;
   font-weight: 600;
 }
+
 #tienda .list-div #gallery .single-product #id-gift {
   width: 150px;
   background-color: rgb(2, 10, 118);
@@ -498,12 +553,14 @@ body {
   justify-content: center;
   height: 1.8rem;
 }
+
 #tienda .list-div #gallery .single-product #id-gift p {
   -webkit-text-fill-color: initial;
   font-size: 16px;
   color: #ff451b;
   font-weight: bold;
 }
+
 #tienda .list-div #gallery .single-product #id-discount {
   justify-content: center;
   align-items: center;
@@ -514,22 +571,27 @@ body {
   right: 0;
   top: 0;
 }
+
 #tienda .list-div #gallery .single-product #id-discount p {
   -webkit-text-fill-color: initial;
   font-weight: 700;
   color: rgb(67, 14, 14);
 }
+
 #tienda .list-div #gallery .single-product:hover {
   background-color: rgb(142, 140, 140);
   transition: all 1s linear;
 }
+
 #tienda .list-div #gallery .single-product:hover a img {
   transition: all 0.5s linear;
   box-shadow: 7px 0px 27px -20px rgba(0, 0, 0, 0.7);
 }
+
 #tienda .list-div #gallery .single-product:hover h4 {
   color: ghostwhite;
 }
+
 #tienda .list-div #gallery .single-product:nth-child(8) ~ .single-product a #id-gift {
   bottom: 195px;
 }
@@ -542,28 +604,34 @@ body {
   background-color: var(--color-bg-secundary);
   border-radius: var(--br-small);
 }
+
 .filter-aside .filter-contain {
   justify-content: space-between;
   height: 80%;
   align-items: center;
   padding: var(--padding-s);
 }
+
 .filter-aside .filter-contain h3 {
   color: var(--text-color-white);
   font-size: 1.75rem;
 }
+
 .filter-aside .filter-contain label {
   color: var(--text-color-white);
   font-weight: 700;
 }
+
 .filter-aside .filter-contain div {
   gap: 0.7rem;
   width: 80%;
 }
+
 .filter-aside .filter-contain div select {
   width: 150px;
   padding: 0.5rem;
 }
+
 .filter-aside .filter-contain div button {
   align-items: center;
   justify-content: center;
@@ -571,6 +639,7 @@ body {
   text-align: center;
   margin-top: var(--margin-s);
 }
+
 .filter-aside .filter-contain div input {
   width: 80%;
   padding: 0.3rem;
@@ -590,6 +659,7 @@ body {
   padding: var(--padding-s) var(--padding-l);
   background-color: var(--color-bg-primary);
 }
+
 #experience-section h3 {
   color: white;
   font-size: 4rem;
@@ -599,29 +669,35 @@ body {
   -webkit-text-stroke-color: black;
   text-shadow: 2px 1px 6px black;
 }
+
 #experience-section p {
   font-size: 2rem;
   width: 100%;
 }
+
 #experience-section .single-experience {
   align-items: center;
   width: 250px;
   gap: var(--gap-s);
 }
+
 #experience-section a {
   width: 100%;
   overflow: hidden;
   border-radius: var(--br-medium);
 }
+
 #experience-section a img {
   border-radius: var(--br-medium);
   width: 100%;
   transition: all 1s ease-in;
   height: 100%;
 }
+
 #experience-section a img:hover {
   transform: scale(1.1);
 }
+
 #experience-section h4 {
   font-size: 1rem;
 }
@@ -633,12 +709,14 @@ body {
   align-items: center;
   padding: var(--padding-s) var(--padding-xs);
 }
+
 #tendences-sections h3 {
   color: rgb(21, 21, 21);
   font-size: 2rem;
   width: 100%;
   padding: 2rem;
 }
+
 #tendences-sections #div-tendences {
   width: 100%;
   padding: 0 calc(var(--padding-m) - 2px);
@@ -646,26 +724,31 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 #tendences-sections #div-tendences .single-experience {
   align-items: center;
   width: 200px;
   gap: var(--gap-s);
 }
+
 #tendences-sections #div-tendences a {
   object-fit: cover;
   width: 100%;
   overflow: hidden;
   border-radius: var(--br-medium);
 }
+
 #tendences-sections #div-tendences a img {
   border-radius: var(--br-medium);
   width: 100%;
   transition: all 1s ease-in;
   height: 100%;
 }
+
 #tendences-sections #div-tendences a img:hover {
   transform: scale(1.1);
 }
+
 #tendences-sections #div-tendences h4 {
   font-size: 1rem;
 }
@@ -678,6 +761,7 @@ body {
   align-items: center;
   padding: 0 var(--margin-section);
 }
+
 #companies-section button {
   width: 50px;
   height: 50px;
@@ -691,16 +775,19 @@ body {
   top: 50px;
   text-align: center;
 }
+
 #companies-section button img {
   width: 40%;
   height: 30%;
 }
+
 #companies-section a {
   display: flex;
   justify-content: center;
   width: 190px;
   height: 80px;
 }
+
 #companies-section a img {
   object-fit: contain;
   width: 100%;
@@ -715,11 +802,13 @@ body {
   height: auto;
   align-items: start;
 }
+
 #blog-part h3 {
   padding: 2px;
   grid-column: 1/-1;
   font-size: 2rem;
 }
+
 #blog-part #container-articles {
   grid-column: 1/-1;
   grid-row: 2/-1;
@@ -730,25 +819,30 @@ body {
   gap: var(--gap-s);
   height: 600px;
 }
+
 #blog-part #container-articles .single-article {
   width: 100%;
   justify-items: center;
 }
+
 #blog-part #container-articles .single-article div:first-child {
   width: 100%;
   border-radius: var(--br-medium);
   overflow: hidden;
   transition: all 0.7s;
 }
+
 #blog-part #container-articles .single-article div:first-child img.single-img {
   width: 100%;
   border-radius: var(--br-medium);
   transition: all 1s;
 }
+
 #blog-part #container-articles .single-article div:first-child img.single-img:hover {
   transform: scale(1.1);
   filter: brightness(110%) saturate(120%);
 }
+
 #blog-part #container-articles .single-article div:last-child {
   gap: var(--gap-s);
   padding: var(--padding-s) var(--padding-m);
@@ -757,9 +851,11 @@ body {
   bottom: -170px;
   z-index: 4;
 }
+
 #blog-part #container-articles .single-article div:last-child h4 {
   color: black;
 }
+
 #blog-part #container-articles .single-article div:last-child p {
   color: black;
   display: -webkit-box;
@@ -768,6 +864,7 @@ body {
   overflow: hidden;
   -webkit-box-orient: vertical;
 }
+
 #blog-part #container-articles .single-article div:last-child button {
   display: flex;
   align-items: center;
@@ -777,22 +874,27 @@ body {
   background: transparent;
   border: none;
 }
+
 #blog-part #container-articles .single-article div:last-child button img {
   margin-left: var(--margin-xs);
   width: 20%;
 }
+
 #blog-part #container-articles .single-article div:first-child:hover {
   box-shadow: 4px -1px 13px 0px rgba(0, 0, 0, 0.77);
 }
+
 #blog-part .single-article:first-child {
   grid-row: 1/2;
   grid-column: 1/2;
 }
+
 #blog-part .single-article:nth-child(2) {
   grid-column: 2/3;
   position: relative;
   top: 120px;
 }
+
 #blog-part .single-article:last-child {
   grid-column: 3/4;
   position: relative;
@@ -806,6 +908,7 @@ body {
   background-color: black;
   height: 400px;
 }
+
 #article-adversiting h2 {
   color: var(--text-color-white);
   font-size: 2.4rem;
@@ -814,16 +917,19 @@ body {
   align-self: start;
   padding: 3rem 2rem;
 }
+
 #article-adversiting img {
   width: 60%;
   position: relative;
   left: 40px;
 }
+
 #article-adversiting div {
   width: 400px;
   align-items: center;
   margin-right: var(--margin-xl);
 }
+
 #article-adversiting div p {
   color: var(--text-color-white);
   font-size: 1rem;
@@ -831,6 +937,7 @@ body {
   width: 300px;
   text-align: center;
 }
+
 #article-adversiting div button {
   margin-top: var(--margin-m);
   margin-left: var(--margin-xs);
@@ -848,16 +955,19 @@ body {
   background: linear-gradient(to right, #ff7e2d 10.26%, #f75c24 80.16%);
   height: 10rem;
 }
+
 #last-info-section article {
   width: 100%;
   justify-content: space-around;
 }
+
 #last-info-section article a {
   width: 400px;
   gap: var(--gap-s);
   flex-wrap: wrap;
   align-items: center;
 }
+
 #last-info-section article a p {
   width: 70%;
   height: 40px;
@@ -866,11 +976,13 @@ body {
   color: var(--text-color-black);
   display: inline-block;
 }
+
 #last-info-section .single-promotion:first-child ~ .single-promotion {
   border-left: 1px solid var(--bg-black);
   height: 60px;
   padding-left: 2.2rem;
 }
+
 #last-info-section .single-promotion:first-child ~ .single-promotion a {
   gap: var(--gap-m);
   display: flex;
@@ -878,6 +990,7 @@ body {
   width: 100%;
   align-items: center;
 }
+
 #last-info-section .single-promotion:first-child ~ .single-promotion a p {
   width: 15rem;
   height: 40px;
@@ -885,9 +998,11 @@ body {
   font-size: 1.1rem;
   color: var(--text-color-black);
 }
+
 #last-info-section .single-promotion:first-child ~ .single-promotion a:visited {
   color: var(--text-color-black);
 }
+
 #last-info-section .single-promotion:nth-child(2) > a:first-child > p {
   height: 30px;
 }
@@ -904,57 +1019,70 @@ footer {
   justify-content: start;
   background-color: var(--bg-color-2);
 }
+
 #footer-page .allContainer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: start;
   height: 80%;
 }
+
 #footer-page .allContainer ul {
   width: fit-content;
   height: fit-content;
 }
+
 #footer-page .allContainer ul li {
   width: 100%;
   transition: all 0.5s ease-in-out;
   padding: var(--padding-xs);
 }
+
 #footer-page .allContainer ul li:hover {
   background-color: var(--bg-color-darkgrey);
 }
+
 #footer-page .allContainer ul h5 {
   padding: var(--padding-xs);
   font-weight: 700;
   font-size: 1rem;
 }
+
 #footer-page .allContainer ul a {
   color: var(--text-color-black);
 }
+
 #footer-page .allContainer ul ul:nth-child(5) li {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #footer-page .allContainer ul ul:nth-child(5) a {
   display: flex;
   align-items: center;
   height: 20px;
 }
+
 #footer-page .allContainer ul img {
   width: 20px;
   height: 20px;
 }
+
 #footer-page .allContainer article {
   width: 15%;
   gap: var(--gap-s);
   justify-content: center;
 }
+
 #footer-page .allContainer article h5 {
   font-size: 1rem;
 }
+
 #footer-page .allContainer article select {
   padding: var(--padding-xs) 0;
 }
+
 #footer-page .allContainer article div#credit-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -964,11 +1092,13 @@ footer {
   height: 120px;
   gap: 5px;
 }
+
 #footer-page .allContainer article div#credit-cards img {
   object-fit: contain;
   width: 100%;
   height: 100%;
 }
+
 #footer-page .allContainer article div#credit-cards img:first-child {
   grid-column: 1/2;
   object-fit: fill;
@@ -976,16 +1106,19 @@ footer {
   height: 100%;
   align-self: center;
 }
+
 #footer-page .allContainer article div#credit-cards img:nth-child(2) {
   grid-column: 2/4;
   width: 100%;
   height: 100%;
   justify-self: center;
 }
+
 #footer-page .allContainer article ul {
   width: 100%;
   gap: var(--gap-m);
 }
+
 #footer-page .allContainer article ul a {
   display: flex;
   flex-direction: column;
@@ -994,13 +1127,16 @@ footer {
   height: 237px;
   transition: all 0.5s linear;
 }
+
 #footer-page .allContainer article ul a:hover {
   background-color: var(--bg-color-darkgrey);
 }
+
 #footer-page .allContainer article ul img {
   width: 90px;
   height: 97.8px;
 }
+
 #footer-page div:last-child {
   border-top: 2px solid var(--bg-color-darkgrey);
   padding: var(--padding-m) 0px;
@@ -1099,15 +1235,18 @@ footer {
   align-items: center;
   margin-right: 0;
 }
+
 #menu:checked ~ ul li {
   position: relative;
   bottom: 100px;
 }
+
 #menu:checked ~ ul li a {
   color: var(--text-color-white);
   width: 100%;
   font-size: 1.5rem;
 }
+
 #menu:checked ~ ul li a img {
   display: inline-block;
 }
@@ -1115,12 +1254,15 @@ footer {
 header #first-header #select-div {
   width: 70%;
 }
+
 header #first-header #select-div #select {
   font-size: 0.7rem;
 }
+
 header #first-header #select-div input {
   width: 40%;
 }
+
 header #first-header #select-div img {
   right: 90px;
 }
@@ -1856,5 +1998,6 @@ header #first-header #select-div img {
     height: 2653.7px;
   }
 }
+
 
 /*# sourceMappingURL=style.css.map */

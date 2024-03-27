@@ -551,7 +551,7 @@ body {
   width: 150px;
   background-color: rgb(2, 10, 118);
   left: 5px;
-  bottom: 42%;
+  bottom: 40%;
   justify-content: center;
   height: 1.8rem;
 }
@@ -1160,6 +1160,9 @@ footer {
   }
 }
 @media screen and (max-width: 1256px) {
+  #tienda .list-div #gallery .single-product #id-gift {
+    bottom: 33%;
+  }
   #tienda .list-div #gallery .single-product:nth-child(9) ~ .single-product a #id-gift {
     bottom: 210px;
   }
@@ -1193,6 +1196,9 @@ footer {
     width: 11rem;
     font-weight: 400;
     font-size: 0.8rem;
+  }
+  #tienda .list-div #gallery .single-product #id-gift {
+    bottom: 39%;
   }
 }
 @media screen and (max-width: 1140px) {
@@ -1417,6 +1423,11 @@ header #first-header #select-div img {
     justify-content: space-between;
   }
 }
+@media screen and (max-width: 972px) {
+  #tienda .list-div #gallery .single-product #id-gift {
+    bottom: 29%;
+  }
+}
 @media screen and (max-width: 896px) {
   #last-info-section .single-promotion:first-child ~ .single-promotion a {
     justify-content: center;
@@ -1488,7 +1499,10 @@ header #first-header #select-div img {
     text-align: center;
   }
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 781px) {
+  #tienda .list-div #gallery .single-product #id-gift {
+    bottom: 35%;
+  }
   #tienda .list-div ul {
     width: 80%;
   }
@@ -1627,6 +1641,13 @@ header #first-header #select-div img {
   }
 }
 @media screen and (max-width: 688px) {
+  #tienda .list-div #gallery .single-product #id-gift {
+    height: 23px;
+    bottom: 38%;
+  }
+  #tienda .list-div #gallery .single-product #id-gift > p {
+    font-size: 13px;
+  }
   #footer-page .allContainer {
     height: 930px;
   }
@@ -1672,8 +1693,15 @@ header #first-header #select-div img {
     object-fit: cover;
     object-position: 99% 4%;
   }
+  #tienda .list-div #gallery .single-product #id-gift {
+    height: 19px;
+    bottom: 39%;
+  }
 }
 @media screen and (max-width: 584px) {
+  #tienda .list-div #gallery .single-product #id-gift {
+    bottom: 40%;
+  }
   .filter-aside {
     height: fit-content;
   }
